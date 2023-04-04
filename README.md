@@ -3,6 +3,10 @@
 ## Description
 This site is a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts. It was deployed to Heroku and follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. Feel free to click around and add your own comments and thoughts!
 
+The file structure follows the MVC guidelines as shown below:
+![FileStructure](./READMEimgs/FileStructure.png)
+
+
 ## Table of Contents: 
 - [Description](#description) 
 - [Credits](#credits) 
