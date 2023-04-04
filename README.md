@@ -7,6 +7,8 @@ The file structure follows the MVC guidelines as shown below:
 ![FileStructure](./READMEimgs/FileStructure.png)
 
 
+[INSERT SCREENSHOT HERE]
+
 ## Table of Contents: 
 - [Description](#description) 
 - [Credits](#credits) 
