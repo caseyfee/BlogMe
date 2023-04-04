@@ -1,3 +1,5 @@
+// ADDING USERS TO THE DATABASE
+
 const router = require('express').Router();
 const { User } = require('../../models');
 
