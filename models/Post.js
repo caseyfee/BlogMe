@@ -23,10 +23,6 @@ Post.init(
     content: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
     },
     user_id: {
       type: DataTypes.INTEGER,
