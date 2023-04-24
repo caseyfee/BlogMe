@@ -1,8 +1,11 @@
 {{#each posts as |post| }}
+<a href="/post/{{id}}">
 <div class="row align-center mb-5">
   <div class="col-md-12">
-    <h2> {{post.title}} {{this.user.name}}</h2>
-    <p> {{post.content}}</p>
+    <h2> {{title}} {{user.name}} {{format_date createdAt}}</h2>
+    <p> {{content}}</p>
   </div>
 </div>
+</a>
+
 {{/each}}
