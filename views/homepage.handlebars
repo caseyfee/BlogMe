@@ -2,10 +2,10 @@
 <a href="/post/{{id}}">
 <div class="row align-center mb-5">
   <div class="col-md-12">
-    <h2> {{title}} {{user.name}} {{format_date createdAt}}</h2>
+    <h2> {{title}} </a> <p> Written by: {{user.name}} on {{format_date createdAt}} </p></h2>
     <p> {{content}}</p>
   </div>
 </div>
-</a>
+
 
 {{/each}}

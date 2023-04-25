@@ -2,11 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 // const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class Post extends Model {
-  // checkPassword(loginPw) {
-  //   return bcrypt.compareSync(loginPw, this.password);
-  // }
-}
+class Post extends Model {}
 
 Post.init(
   {
@@ -29,6 +25,14 @@ Post.init(
       allowNull: false,
       references: {
         model: 'user',
+        key: 'id',
+      },
+    },
+    comment_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'comment',
         key: 'id',
       },
     },

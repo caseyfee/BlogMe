@@ -96,6 +96,29 @@ router.get('/login', async (req, res) => {
   });
 });
 
+router.get('post/:id/comment', async (req, res) => {
+  try {
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const comment = commentData.get({ plain: true });
+
+    res.render('comment', {
+      ...comment,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+});
+
 router.get('/logout', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -108,26 +131,6 @@ router.get('/logout', (req, res) => {
 });
 
 
-// 
-// router.get('/voting', async (req, res) => {
-//   // If the user is already logged in, redirect the request to another route
-//   if (!req.session.logged_in) {
-//     res.redirect('/login');
-//     return;
-//   }
-
-//   const flavorData = await Flavor.findAll();
-
-//   // Serialize data so the template can read it
-//   const flavors = flavorData.map((flavor) => flavor.get({ plain: true }));
-
-//   // Pass serialized data and session flag into template
-//   res.render('voting', {
-//     flavors,
-//     logged_in: req.session.logged_in
-//   });
-
-// });
 
 
 module.exports = router;

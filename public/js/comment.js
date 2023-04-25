@@ -4,10 +4,12 @@ const commentHandler = async (event) => {
   
     // Gather the data from the form elements on the page
     const comment = document.querySelector('#comment-input').value.trim();
-  
+    const id = event.target.getAttribute('data-id');
+
     if (comment) {
       // Send the comment to the server
-      const response = await fetch('/api/post', {
+
+      const response = await fetch(`/api/posts/${id}`, {
         method: 'POST',
         body: JSON.stringify({ comment }),
         headers: { 'Content-Type': 'application/json' },
@@ -23,5 +25,5 @@ const commentHandler = async (event) => {
   
 
 document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signUpFormHandler);
+  .querySelector('.comment-form')
+  .addEventListener('submit', commentHandler);

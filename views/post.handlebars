@@ -4,14 +4,32 @@
   <p>Created by {{user.name}} on {{format_date createdAt}}</p>
 
   <p>
-  <form class="form comment">
+  <form class="comment-form">
     <div class="form-group">
       <label for="comment">comment:</label>
       <input class="form-input" type="text" id="comment-input" />
     </div>
-      <button class="btn btn-primary">Submit Comment</button>
+    <button class="btn btn-primary" data-id={{id}}>Submit Comment</button>
 
   </form>
+  {{#if comments.length}}
+  <div class="col-md-6 project-list">
+    <h3>Current Projects:</h3>
+    {{#each comments as |comment| }}
+    <a href="/post/{{id}}/comment">
+      <div class="row align-center mb-5">
+        <div class="col-md-12">
+          <h2> {{user.name}} {{format_date createdAt}}</h2>
+          <p> {{content}}</p>
+        </div>
+      </div>
+    </a>
+
+    {{/each}}
+  </div>
+  {{/if}}
 
   </p>
 </div>
+
+<script src="/js/comment.js"></script>

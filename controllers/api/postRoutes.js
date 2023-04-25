@@ -35,15 +35,18 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+
 router.post('/:id/comment', withAuth, async (req, res) => {
   try {
-    // update this , with comment model?
-    const newPost = await Post.create({
+    // posts belong to comment
+    const newComment = await Comment.create({
       ...req.body,
       user_id: req.session.user_id,
+      post_id: req.session.post_id,
+
     });
 
-    res.status(200).json(newPost);
+    res.status(200).json(newComment);
   } catch (err) {
     res.status(400).json(err);
   }
