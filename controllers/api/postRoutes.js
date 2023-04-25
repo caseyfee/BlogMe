@@ -35,7 +35,7 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
-// adding comment
+// adding comment (may need to change commentRoutes, duplicate .post i think)
 router.post('/:id/comment', withAuth, async (req, res) => {
   try {
     // posts belong to comment
