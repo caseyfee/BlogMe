@@ -35,15 +35,15 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
-
+// adding comment
 router.post('/:id/comment', withAuth, async (req, res) => {
   try {
     // posts belong to comment
     const newComment = await Comment.create({
-      ...req.body,
+      content: req.body.content,
       user_id: req.session.user_id,
-      post_id: req.session.post_id,
-
+      post_id: req.params.id,
+      date_created: new Date()
     });
 
     res.status(200).json(newComment);
